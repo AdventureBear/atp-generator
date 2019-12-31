@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import InputModal from './InputModal'
+import { Button, Container } from '@material-ui/core';
 
-function App() {
+function App () {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  // const [show, setShow] = React.useState(false)
+  //
+  //
+  // const showModal = e => {
+  //   setShow(true)
+  // };
+  //
+  // const closeModal = e=> {
+  //   setShow(false)
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container>
+      <Button  variant="contained" color="primary" onClick= {handleClickOpen
+        // e => {
+        //   showModal();
+        // }
+      }
+      > show Modal </Button>
+      <InputModal open={open}
+                  handleClose = {handleClose} />
+    </Container>
+  )
 }
 
 export default App;
